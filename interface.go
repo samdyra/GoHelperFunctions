@@ -6,6 +6,12 @@ func main() {
 	var sam Person
 	sam.Name	 = "sam"
 	sayHello(sam)
+
+	myInt := IntCounter(0)
+	var inc Incrementer = &myInt
+	for i := 0; i < 10; i++ {
+		fmt.Println(inc.Increment())
+	}
 }
 
 type HasName interface {
@@ -25,4 +31,13 @@ func sayHello(hasName HasName) {
 
 
 
+type Incrementer interface {
+	Increment() int
+}
 
+type IntCounter int
+
+func (ic *IntCounter) Increment() int {
+	*ic++
+	return int(*ic)
+}
