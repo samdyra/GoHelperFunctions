@@ -3,7 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	// tryFunctions()
+	tryFunctions("hello", 2)
+	s,error := sum()
+	if error != nil {
+		fmt.Println(error)
+		return 
+	} 
+	fmt.Println(s)
 }
 
 func tryFunctions(msg string, idx int) {
